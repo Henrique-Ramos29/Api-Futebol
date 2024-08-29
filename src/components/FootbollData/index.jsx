@@ -29,6 +29,23 @@ const FootballData = () => {
     fetchData();
   }, []);
 
+  if (!teams.length) {
+    return <div>Carregando...</div>
+  }
+
+  const getClassName = (rank) => {
+    if (rank <=6) {
+      return styles.topSiix;
+    } else if ( rank >= 7 && rank <= 12) {
+      return styles.azulSiix;
+    } else if (rank >= 17) {
+      return styles.bottomQuarto;
+    }
+
+    return '';
+
+  }
+
   if (error) {
     return <div>Erro: {error.message}</div>;
   }
@@ -43,9 +60,9 @@ const FootballData = () => {
       <table className={styles.tabela} >
         <thead>
         {teams.map((team) => (
-          <tr key={team.team.id}>
+          <tr key={team.team.id} className={getClassName(team.rank)} >
             <th>{team.rank}. {team.team.name}</th>
-            <img src={team.team.logo} alt={`Logotipo do ${team.team.name}`} width={25} height={25} />
+            <img className={styles.imagemTime} src={team.team.logo} alt={`Logotipo do ${team.team.name}`} width={24} height={26} />
             <th>Pontos: {team.points}</th>
             <th>Vitórias: {team.all.win}</th>
             <th>Empates: {team.all.draw}</th>

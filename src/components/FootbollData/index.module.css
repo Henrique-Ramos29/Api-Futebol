@@ -10,11 +10,25 @@
 
 .titulo {
     text-align: center;
-    font-size: 24px;
+    font-size: 14px;
     font-weight: bold;
     color: #333;
     margin-bottom: 10px;
 }
+
+/* src/index.module.css */
+.topSiix {
+    color:#027600;
+}
+
+.azulSiix {
+    color: #2B7BEB;
+}
+
+.bottomQuarto {
+    color: #EB2B1F
+}
+
 
 
 .tabela th,
@@ -33,5 +47,9 @@
      th {
         font-size: xx-small;
         margin: 0;
+    }
+
+    .imagemTime {
+        margin-top: 4px;
     }
 }
